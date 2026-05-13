@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kritik & Saran — Pemuda RESPEK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green-50: #EDFAF4;
+    --green-100: #C6F0DC;
+    --green-200: #8EDDB9;
+    --green-500: #1B9A6A;
+    --green-600: #157A53;
+    --green-700: #0F5C3E;
+    --green-800: #093D2A;
+    --green-900: #041F15;
+    --amber-100: #FEF3CD;
+    --amber-600: #D4860F;
+    --red-100: #FDECEA;
+    --red-600: #C0392B;
+    --gray-50: #F8F9FA;
+    --gray-100: #F1F3F5;
+    --gray-200: #E9ECEF;
+    --gray-300: #DEE2E6;
+    --gray-400: #CED4DA;
+    --gray-500: #ADB5BD;
+    --gray-600: #868E96;
+    --gray-700: #495057;
+    --gray-800: #343A40;
+    --gray-900: #212529;
+    --white: #FFFFFF;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+    --shadow-md: 0 4px 12px rgba(0,0,0,.08), 0 2px 4px rgba(0,0,0,.04);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,.10), 0 2px 8px rgba(0,0,0,.05);
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--gray-100);
+    min-height: 100vh;
+    padding: 2rem 1rem 4rem;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(27,154,106,.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 90%, rgba(27,154,106,.05) 0%, transparent 50%);
+  }
+
+  .page-wrapper {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  /* ── Header ── */
+  .header-card {
+    background: var(--green-700);
+    border-radius: var(--radius-xl);
+    padding: 2.5rem 2rem 2rem;
+    margin-bottom: 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .header-card::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.06);
+  }
+  .header-card::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: -40px;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.04);
+  }
+  .org-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,.15);
+    color: rgba(255,255,255,.9);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 999px;
+    margin-bottom: 1.25rem;
+  }
+  .org-badge svg { width: 14px; height: 14px; }
+  .header-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1.2;
+    margin-bottom: .75rem;
+    position: relative;
+    z-index: 1;
+  }
+  .header-subtitle {
+    font-size: 14.5px;
+    color: rgba(255,255,255,.75);
+    line-height: 1.6;
+    max-width: 440px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── Privacy notice ── */
+  .privacy-banner {
+    background: var(--green-50);
+    border: 1.5px solid var(--green-100);
+    border-radius: var(--radius-md);
+    padding: 12px 16px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    color: var(--green-700);
+    line-height: 1.55;
+  }
+  .privacy-banner svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px; }
+
+  /* ── Form card ── */
+  .form-card {
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+  }
+
+  .field-group {
+    margin-bottom: 1.5rem;
+  }
+
+  label.field-label {
+    display: block;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: .5rem;
+    letter-spacing: .01em;
+  }
+  label.field-label .required {
+    color: var(--red-600);
+    margin-left: 3px;
+  }
+  .field-hint {
+    font-size: 12.5px;
+    color: var(--gray-500);
+    margin-top: .3rem;
+  }
+
+  select, textarea {
+    width: 100%;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    color: var(--gray-800);
+    background: var(--gray-50);
+    border: 1.5px solid var(--gray-300);
+    border-radius: var(--radius-md);
+    padding: 11px 14px;
+    transition: border-color .15s, box-shadow .15s, background .15s;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23868E96' stroke-width='1.5' d='M4 6l4 4 4-4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    padding-right: 36px;
+    cursor: pointer;
+  }
+  textarea { resize: vertical; min-height: 130px; line-height: 1.6; }
+  select:focus, textarea:focus {
+    border-color: var(--green-500);
+    background: var(--white);
+    box-shadow: 0 0 0 3px rgba(27,154,106,.12);
+  }
+  select:hover:not(:focus), textarea:hover:not(:focus) {
+    border-color: var(--gray-400);
+  }
+
+  /* ── Rating stars ── */
+  .rating-group {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .rating-group input[type="radio"] { display: none; }
+  .rating-group label.star-label {
+    cursor: pointer;
+    font-size: 28px;
+    color: var(--gray-300);
+    transition: color .12s, transform .12s;
+    user-select: none;
+    line-height: 1;
+    margin-bottom: 0;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+  .rating-group:hover label.star-label { color: var(--amber-100); }
+  .rating-group input[type="radio"]:checked ~ label.star-label,
+  .rating-group label.star-label:hover,
+  .rating-group label.star-label:hover ~ label.star-label { color: #F59E0B; }
+  .rating-group label.star-label:hover { transform: scale(1.2); }
+  .rating-caption {
+    font-size: 12.5px;
+    color: var(--gray-500);
+    margin-top: .4rem;
+  }
+
+  /* ── Divider ── */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--gray-200);
+    margin: 1.75rem 0;
+  }
+
+  /* ── Submit button ── */
+  .btn-submit {
+    width: 100%;
+    background: var(--green-600);
+    color: #FFFFFF;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 15.5px;
+    font-weight: 700;
+    border: none;
+    border-radius: var(--radius-md);
+    padding: 13px 20px;
+    cursor: pointer;
+    transition: background .15s, transform .1s, box-shadow .15s;
+    letter-spacing: .01em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .btn-submit:hover { background: var(--green-700); box-shadow: 0 4px 16px rgba(27,154,106,.25); }
+  .btn-submit:active { transform: scale(.98); }
+  .btn-submit:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+  .btn-submit svg { width: 18px; height: 18px; }
+
+  /* ── Success state ── */
+  .success-card {
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    padding: 3rem 2rem;
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    display: none;
+  }
+  .success-icon {
+    width: 72px; height: 72px;
+    background: var(--green-50);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+  }
+  .success-icon svg { width: 36px; height: 36px; color: var(--green-600); }
+  .success-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--gray-900);
+    margin-bottom: .5rem;
+  }
+  .success-text {
+    font-size: 15px;
+    color: var(--gray-600);
+    line-height: 1.65;
+    margin-bottom: 1.75rem;
+  }
+  .btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--green-600);
+    background: var(--green-50);
+    border: 1.5px solid var(--green-100);
+    border-radius: var(--radius-md);
+    padding: 9px 18px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background .15s;
+  }
+  .btn-back:hover { background: var(--green-100); }
+
+  /* ── Error state ── */
+  .error-banner {
+    background: var(--red-100);
+    border: 1px solid #F5C6C2;
+    color: var(--red-600);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    font-size: 13.5px;
+    margin-top: .75rem;
+    display: none;
+  }
+
+  /* ── Footer ── */
+  .footer-note {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 12.5px;
+    color: var(--gray-500);
+    line-height: 1.6;
+  }
+
+  /* ── Char counter ── */
+  .char-counter {
+    text-align: right;
+    font-size: 12px;
+    color: var(--gray-400);
+    margin-top: .3rem;
+    transition: color .15s;
+  }
+  .char-counter.warn { color: var(--amber-600); }
+  .char-counter.over { color: var(--red-600); }
+
+  /* ── Spinner ── */
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .spinner {
+    width: 18px; height: 18px;
+    border: 2.5px solid rgba(255,255,255,.4);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin .7s linear infinite;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-wrapper">
+
+  <!-- Header -->
+  <div class="header-card">
+    <div class="org-badge">
+      <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7 1L8.8 4.7L13 5.3L10 8.2L10.7 12.4L7 10.5L3.3 12.4L4 8.2L1 5.3L5.2 4.7L7 1Z" fill="currentColor"/>
+      </svg>
+      Pemuda RESPEK
+    </div>
+    <h1 class="header-title">Kritik &amp; Saran</h1>
+    <p class="header-subtitle">Suaramu penting buat kami. Bantu kami tumbuh dengan masukan yang jujur dan membangun.</p>
+  </div>
+
+  <!-- Privacy notice -->
+  <div class="privacy-banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+    </svg>
+    <div>
+      <strong>Formulir Anonim.</strong> Kami tidak meminta namamu. Tidak ada data pribadi yang dikumpulkan. Semua masukan bersifat rahasia dan hanya digunakan untuk perbaikan internal.
+    </div>
+  </div>
+
+  <!-- Form card -->
+  <div class="form-card" id="form-card">
+    <form id="main-form" novalidate>
+
+      <!-- Kategori -->
+      <div class="field-group">
+        <label class="field-label" for="kategori">
+          Kategori Masukan <span class="required">*</span>
+        </label>
+        <select id="kategori" name="kategori" required>
+          <option value="" disabled selected>— Pilih kategori —</option>
+          <option value="Saran">💡 Saran</option>
+          <option value="Kritik">⚡ Kritik</option>
+          <option value="Keluhan">📢 Keluhan</option>
+          <option value="Apresiasi">🌟 Apresiasi</option>
+          <option value="Pertanyaan">❓ Pertanyaan</option>
+        </select>
+      </div>
+
+      <!-- Aspek -->
+      <div class="field-group">
+        <label class="field-label" for="aspek">
+          Aspek yang Dituju <span class="required">*</span>
+        </label>
+        <select id="aspek" name="aspek" required>
+          <option value="" disabled selected>— Pilih aspek —</option>
+          <option value="Program & Kegiatan">Program &amp; Kegiatan</option>
+          <option value="Kepemimpinan">Kepemimpinan</option>
+          <option value="Komunikasi & Informasi">Komunikasi &amp; Informasi</option>
+          <option value="Anggota & Komunitas">Anggota &amp; Komunitas</option>
+          <option value="Fasilitas & Sarana">Fasilitas &amp; Sarana</option>
+          <option value="Keuangan & Transparansi">Keuangan &amp; Transparansi</option>
+          <option value="Lainnya">Lainnya</option>
+        </select>
+      </div>
+
+      <!-- Pesan -->
+      <div class="field-group">
+        <label class="field-label" for="pesan">
+          Pesan / Masukan <span class="required">*</span>
+        </label>
+        <textarea id="pesan" name="pesan" maxlength="1000" placeholder="Tulis masukanmu di sini dengan jelas dan spesifik…" required></textarea>
+        <div class="char-counter" id="char-counter">0 / 1000 karakter</div>
+        <p class="field-hint">Tulis minimal 20 karakter agar masukan dapat dipahami dengan baik.</p>
+      </div>
+
+      <!-- Rating -->
+      <div class="field-group">
+        <label class="field-label" for="rating">Tingkat Kepuasanmu Saat Ini</label>
+        <div class="rating-group" id="rating-group">
+          <input type="radio" id="r5" name="rating" value="5">
+          <input type="radio" id="r4" name="rating" value="4">
+          <input type="radio" id="r3" name="rating" value="3">
+          <input type="radio" id="r2" name="rating" value="2">
+          <input type="radio" id="r1" name="rating" value="1">
+          <label class="star-label" for="r5" title="Sangat Puas">★</label>
+          <label class="star-label" for="r4" title="Puas">★</label>
+          <label class="star-label" for="r3" title="Cukup">★</label>
+          <label class="star-label" for="r2" title="Kurang Puas">★</label>
+          <label class="star-label" for="r1" title="Tidak Puas">★</label>
+        </div>
+        <p class="rating-caption" id="rating-caption">Klik bintang untuk memberi nilai (opsional)</p>
+      </div>
+
+      <hr class="divider">
+
+      <!-- Error -->
+      <div class="error-banner" id="error-banner"></div>
+
+      <!-- Submit -->
+      <button type="submit" class="btn-submit" id="submit-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+        </svg>
+        Kirim Masukan
+      </button>
+
+    </form>
+  </div>
+
+  <!-- Success state -->
+  <div class="success-card" id="success-card">
+    <div class="success-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+    </div>
+    <h2 class="success-title">Terima Kasih! 🎉</h2>
+    <p class="success-text">Masukanmu sudah kami terima dan akan segera ditindaklanjuti.<br>Suaramu benar-benar berarti untuk kemajuan Pemuda RESPEK.</p>
+    <a class="btn-back" href="#" id="send-again-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.7"/></svg>
+      Kirim Masukan Lagi
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <p class="footer-note">
+    Form ini terhubung ke Google Sheets internal Pemuda RESPEK.<br>
+    Semua data bersifat anonim &amp; aman.
+  </p>
+
+</div>
+
+<script>
+  // ╔══════════════════════════════════════╗
+  // ║  GANTI DENGAN URL APPS SCRIPT KAMU  ║
+  // ╚══════════════════════════════════════╝
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw1VDnrM6y-x6caNI48fpLm2TPvDg7mE_mWUz1D2fmiEPsF86cfXi8UTXhUSH78017R1g/exec';
+
+  // ── Char counter ──
+  const pesan = document.getElementById('pesan');
+  const counter = document.getElementById('char-counter');
+  pesan.addEventListener('input', () => {
+    const len = pesan.value.length;
+    counter.textContent = len + ' / 1000 karakter';
+    counter.className = 'char-counter' + (len > 900 ? ' over' : len > 700 ? ' warn' : '');
+  });
+
+  // ── Star rating label ──
+  const ratingCaptions = ['','Tidak Puas ☹️','Kurang Puas 😕','Cukup 😐','Puas 😊','Sangat Puas 🤩'];
+  document.querySelectorAll('input[name="rating"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+      document.getElementById('rating-caption').textContent = ratingCaptions[radio.value] || '';
+    });
+  });
+
+  // ── Fix star order (RTL workaround) ──
+  // Stars are in descending order in HTML so CSS :hover works;
+  // this JS swap ensures visual left=1 right=5 order
+  const rg = document.getElementById('rating-group');
+  const labels = Array.from(rg.querySelectorAll('label.star-label')).reverse();
+  const radios = Array.from(rg.querySelectorAll('input[type=radio]')).reverse();
+  radios.forEach((r,i) => { rg.appendChild(r); rg.appendChild(labels[i]); });
+
+  // ── Form submit ──
+  const form = document.getElementById('main-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const errorBanner = document.getElementById('error-banner');
+  const formCard = document.getElementById('form-card');
+  const successCard = document.getElementById('success-card');
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    errorBanner.style.display = 'none';
+
+    const kategori = document.getElementById('kategori').value;
+    const aspek = document.getElementById('aspek').value;
+    const pesanVal = pesan.value.trim();
+    const ratingVal = (document.querySelector('input[name="rating"]:checked') || {}).value || 'Tidak diisi';
+
+    // Validation
+    if (!kategori) { showError('Silakan pilih kategori masukan.'); return; }
+    if (!aspek)    { showError('Silakan pilih aspek yang dituju.'); return; }
+    if (pesanVal.length < 20) { showError('Pesan terlalu pendek. Tuliskan minimal 20 karakter.'); return; }
+
+    // Check if URL is still placeholder
+    if (SCRIPT_URL.includes('GANTI_DENGAN_URL')) {
+      showError('⚙️ Form belum terhubung ke Google Sheets. Silakan hubungi admin.');
+      return;
+    }
+
+    // Loading
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<div class="spinner"></div> Mengirim...';
+
+    try {
+      await fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ kategori, aspek, pesan: pesanVal, rating: ratingVal })
+      });
+      formCard.style.display = 'none';
+      successCard.style.display = 'block';
+      successCard.style.animation = 'fadeIn .4s ease';
+    } catch (err) {
+      showError('Gagal mengirim. Periksa koneksi internet atau coba beberapa saat lagi.');
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px">
+          <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+        </svg>Kirim Masukan`;
+    }
+  });
+
+  function showError(msg) {
+    errorBanner.textContent = msg;
+    errorBanner.style.display = 'block';
+    errorBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  // ── Send again ──
+  document.getElementById('send-again-btn').addEventListener('click', e => {
+    e.preventDefault();
+    form.reset();
+    pesan.value = '';
+    counter.textContent = '0 / 1000 karakter';
+    counter.className = 'char-counter';
+    document.getElementById('rating-caption').textContent = 'Klik bintang untuk memberi nilai (opsional)';
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = `
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px">
+        <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+      </svg>Kirim Masukan`;
+    successCard.style.display = 'none';
+    formCard.style.display = 'block';
+  });
+</script>
+</body>
+</html>
